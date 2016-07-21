@@ -3,8 +3,8 @@ from string import ascii_uppercase
 import sys
 
 heaps=[]
-numberOfHeaps=3
-maxHeapSize=20
+numberOfHeaps=5
+maxHeapSize=10
 currentPlayer=True
 
 def displayHeap():
@@ -19,13 +19,14 @@ def checkWinState(player):
 			print "You Win!"
 		else:
 			print "I win"
-			sys.exit()
+		sys.exit(0)
 
 for i in xrange(numberOfHeaps):
 	heaps.append(random.randint(1,maxHeapSize))
 
 def computerMove():
-	pass
+	nim_sum=reduce(lambda a,b: a^b, heaps)
+	print "{0:b}".format(nim_sum)
 
 print "\nWelcome to NIM!"
 while(True):
